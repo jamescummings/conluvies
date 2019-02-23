@@ -1,0 +1,672 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:jc="http://james.blushingbunny.net/ns.html">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>TEI Pure ODD Test</title>
+      </titleStmt>
+      <publicationStmt>
+        <p>Publication Information</p>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Information about the source</p>
+      </sourceDesc>
+    </fileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <div>
+        <head>Introduction</head>
+        <p>This TEI ODD customisation file demonstrates some of the new features in the TEI's "Pure
+          ODD" version of its customisation language. As well it demonstrates some of the most
+          common things people do in a TEI ODD customisation file. TEI ODD files may have as much
+          prose in them as you like. This is not intended to teach you TEI ODD customisation, just
+          remind you of some of the highlights. This is the, often forgotten, reason for the
+          One-Document-DoesItAll approach of TEI ODD. You have one file which acts as a source not
+          only for generating your schema but generating your project-specific documentation (and
+          reference pages) as well.</p>
+        
+      </div>
+      <div>
+        <head>In the Prose</head>
+        <div>
+          <head>Displaying Lists of Elements</head>
+          <p> One of the good things about TEI's ODD customisation language is that it enables you
+            not to have to repeat information. For example, if I want to have a definition of an
+            element put into my project documentation I can use the <gi>specDesc</gi> element
+            embedded in a <gi>specList</gi> such as:
+            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+              <specList>
+                <specDesc key="specList"/>
+                <specDesc key="specDesc" atts="atts key"/>
+              </specList>
+            </egXML>
+            Notice how the <gi>specDesc</gi> for specDesc lists what attributes on this element we
+            also want to output. In the output this will look something like: <specList>
+              <specDesc key="specList"/>
+              <specDesc key="specDesc" atts="atts key"/>
+            </specList>
+          </p>
+        </div>
+        <div>
+          <head>Embedding Customisation in the Prose</head>
+          <p> Another great thing about the TEI's customisation language is the ability to embed the
+            customisations at the point in the prose which discusses them. Let's say this section of
+            our encoding manual was about the <gi>damage</gi> element. <specList>
+              <specDesc key="damage" atts="agent"/>
+            </specList> Perhaps we want to make a new suggested values list for its <att>agent</att>
+            element, not to be a fixed list but suggest values of 'blot', 'fading', 'hole',
+            'overwriting', 'rubbing', 'stain' and 'water'. We can do this with an
+              <gi>elementSpec</gi> that looks something like:
+            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+            
+              <elementSpec ident="damage" module="transcr" mode="change" xml:id="damageSpec">
+                <attList>
+                  <attDef ident="agent" mode="change">
+                    <valList mode="replace" type="semi">
+                      <valItem ident="blot">
+                        <desc>There is an ink blot</desc>
+                      </valItem>
+                      <valItem ident="fading">
+                        <desc>It is faded</desc>
+                      </valItem>
+                      <valItem ident="hole">
+                        <desc>There is a hole</desc>
+                      </valItem>
+                      <valItem ident="overwriting">
+                        <desc>There is overwriting</desc>
+                      </valItem>
+                      <valItem ident="rubbing">
+                        <desc>There is rubbing</desc>
+                      </valItem>
+                      <valItem ident="stain">
+                        <desc>There is a stain</desc>
+                      </valItem>
+                      <valItem ident="water">
+                        <desc>There is water damage</desc>
+                      </valItem>
+                    </valList>
+                  </attDef>
+                </attList>
+              </elementSpec>
+            </egXML>
+            But the nifty thing is that we can embed that <gi>elementSpec</gi> right here in the
+            prose where it is being discussed. This means if we ever go to change the element
+            specification for <gi>damage</gi> we will come to the place it is discussed in the
+            prose, and so change the prose and examples to match as well. In our case we've embedded
+            the elementSpec for <gi>damage</gi> just after this paragraph.</p>
+
+          <!-- elementSpec for damage embedded in the prose -->
+          <elementSpec ident="damage" module="transcr" mode="change" xml:id="damage-spec">
+            <attList>
+              <attDef ident="agent" mode="change">
+                <valList mode="replace" type="semi" xml:id="gap-agent">
+                  <valItem ident="blot">
+                    <desc>There is an ink blot</desc>
+                  </valItem>
+                  <valItem ident="fading">
+                    <desc>It is faded</desc>
+                  </valItem>
+                  <valItem ident="hole">
+                    <desc>There is a hole</desc>
+                  </valItem>
+                  <valItem ident="overwriting">
+                    <desc>There is overwriting</desc>
+                  </valItem>
+                  <valItem ident="rubbing">
+                    <desc>There is rubbing</desc>
+                  </valItem>
+                  <valItem ident="stain">
+                    <desc>There is a stain</desc>
+                  </valItem>
+                  <valItem ident="water">
+                    <desc>There is water damage</desc>
+                  </valItem>
+                  <valItem ident="other">
+                    <desc>There was some other agent of damage</desc>
+                  </valItem>
+                </valList>
+              </attDef>
+            </attList>
+          </elementSpec>
+
+          <p>Now in order for this <gi>elementSpec</gi> to appear as part of the customisation, we
+            need to reference it. To reference something like this from inside your
+              <gi>schemaSpec</gi> you use a <gi>specGrpRef</gi> element and its <att>target</att>
+            attribute. <specList>
+              <specDesc key="specGrpRef" atts="target"/>
+            </specList> So the <gi>schemaSpec</gi> for this file has something which looks like:
+            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+           
+              <specGrpRef target="#damage-spec"/>
+              
+              
+            </egXML>
+            in it. It is considered good practice to embed your specifications at the point in the
+            prose that you discuss them. This enables you to keep prose and formal schema definition
+            up to date. </p>
+
+        </div>
+      </div>
+
+      <div>
+        <head>Creating Your Schema Specification</head>
+        <p>To creation your customisation you must have a <gi>SchemaSpec</gi> element. It is this
+          element which records the schema specification of the TEI customisation. <egXML xmlns="http://www.tei-c.org/ns/Examples">
+            
+            <schemaSpec ident="JC-TEIODD" docLang="en" start="TEI" targetLang="en" prefix="TEI_"> 
+              
+              <!-- schema specification here -->
+              
+            </schemaSpec>
+          
+          </egXML>
+          <specList>
+            <specDesc key="schemaSpec" atts="ident start docLang targetLang prefix source"/>
+          </specList> While you don't need to use all of these attributes the <att>ident</att>
+          attribute should be provided as an identifier for this schema and <att>start</att> to say
+          what element(s) are allowed as root elements. (This latter is useful if you want to have
+          fragments of documents, starting for example with <gi>div</gi> validate with the same
+          schema that you use for the master document.) The <att>source</att> attribute if used
+          gives a mechanism by which a customisation can document what version of the TEI they are
+          using, or to point to an intermediate source (chaining ODDs) that they are further
+          refining. </p>
+        <p>Chaining ODDs, that is pointing to an intermediate ODD rather than directly at the TEI,
+          is an underused and powerful mechanism. One could take a popular customisation (say
+          EpiDoc) and modify it further. But, instead of taking its ODD and editing it, you can
+          point to it with a URI and thus receive any updates it makes in the future. In a single
+          project where you have multiple types of files, such as with the DTA, you might create an
+          overall ODD with everything in, and then create ODDs that point at this which specify the
+          ODD you want for printed books, MSS, or other subset schemas. </p>
+
+      </div>
+
+
+
+      <div>
+
+        <head>Including Modules</head>
+
+        <p>To include modules of elements in your TEI ODD cusomisation you should use the
+            <gi>moduleRef</gi> element to point to these.
+          <egXML xmlns="http://www.tei-c.org/ns/Examples">
+            
+            <moduleRef key="header"/>
+            <moduleRef key="core"/>
+            <moduleRef key="tei"/>
+            <moduleRef key="textstructure"/>
+            
+          </egXML>
+          In each of these your can choose either what elements to include or what elements to
+          exclude. For example the following <gi>moduleRef</gi> elements provide a fairly minimal
+          TEI ODD customisation having only the elements listed. You should always have the 'tei'
+          module since this sets up the TEI class system. This customisation has a few elements from
+          core, header, textstructure, and all the elements from the transcr and tagdocs modules.
+          <egXML xmlns="http://www.tei-c.org/ns/Examples">
+            
+            <moduleRef key="tei"/>
+            <moduleRef key="core" include="p list item label head author title name"/>
+            <moduleRef key="header" include="teiHeader fileDesc titleStmt publicationStmt sourceDesc"/>
+            <moduleRef key="textstructure" include="TEI text body div front back"/>
+            <moduleRef key="transcr"/>
+            <moduleRef key="tagdocs"/>
+            
+          </egXML>
+          If one regenerated a schema from this at a later date no new TEI elements would be
+          provided. One could also have used the <att>except</att> attribute instead to prevent
+          certain existing elements from appearing in the customisation. You can mix this with some
+            <gi>moduleRef</gi> elements including elements and some excluding them. If we changed
+          the 'textstructure' <gi>moduleRef</gi> above to the reverse this would be:
+          <egXML xmlns="http://www.tei-c.org/ns/Examples">
+            
+            <moduleRef key="tei"/>
+            <moduleRef key="core" include="p list item label head author title name"/>
+            <moduleRef key="header" include="teiHeader fileDesc titleStmt publicationStmt sourceDesc"/>
+            <moduleRef key="textstructure" except="argument byline closer dateline div1 div2 div3 div4 div5
+              div6 div7 docAuthor docDate docEdition docImprint docTitle epigraph floatingText group
+              imprimatur opener postscript salute signed titlePage titlePart trailer"/>
+            <moduleRef key="transcr"/>
+            <moduleRef key="tagdocs"/>
+            
+            
+            </egXML>
+          If a new TEI element was added into the header module, this customisation would not
+          receive it when a schema was regenerated against a later version of the TEI. </p>
+      </div>
+
+      <div>
+        <head>Deleting Classes</head>
+        <p> Deleting classes, inside a <gi>schemaSpec</gi>, is very easy:
+          <egXML xmlns="http://www.tei-c.org/ns/Examples">
+          
+            <classSpec type="atts" ident="att.datable" mode="delete"/>
+   
+          </egXML>
+          This deletes the <code>att.datable</code> class from our view of the TEI. Even if we claim
+          membership of it for a particular element, this will be ignored since it doesn't exist. </p>
+        <p> We could of course just delete some of the attributes from this class:
+          <egXML xmlns="http://www.tei-c.org/ns/Examples">
+            
+            <classSpec ident="att.datable" mode="change" module="tei" type="atts">
+              <attList>
+                <attDef ident="calendar" mode="delete"/>
+                <attDef ident="period" mode="delete"/>
+              </attList>
+            </classSpec>
+            
+          </egXML>
+        </p>
+      </div>
+
+      <div>
+        <head>Modifying Aspects of an Element Specification</head>
+        <p> You can change various aspects of the TEI that come with your customisation: elements
+          are changed with <gi>elementSpec</gi>, class membership can be changed with
+            <gi>classSpec</gi>. (Less commonly, projects may wish to use <gi>dataSpec</gi> to change
+          datatypes, <gi>macroSpec</gi> for macros, and <gi>moduleSpec</gi> to create new modules.)
+          Inside an <gi>elementSpec</gi> we can change all sorts of things such as additional
+          schematron constraints, attributes and their values, element descriptions, glosses,
+          remarks/notes, class membership, content models, examples, and processing model
+          documentation. </p>
+        <p>
+          <egXML xmlns="http://www.tei-c.org/ns/Examples">
+            
+            <elementSpec ident="name" module="core" mode="change" xml:id="nameSpec">
+              
+              <!-- specifications -->
+              
+            </elementSpec>
+          
+          </egXML>
+        </p>
+
+        <p>In the example below we provide: <list>
+            <item>A new gloss for the element (which appears in most outputs and editors in
+              parentheses just before the description). We give this a language and a date just so
+              we know when we last changed this and what language it is in. (You can provide
+              multiple translations of glosses and descriptions.) </item>
+            <item>A new description of the element</item>
+            <item>A replacement of the class membership. We keep the model.nameLike.agent because
+              this is the model class which the element joins in order to say where in the TEI
+              scheme it is allowed to appear. I've commented out the various attribute classes
+              (which clearly we wouldn't have to include, I just do this to show what <gi>name</gi>
+              usually has), but left att.typed there. </item>
+            <item>A constraint specification ensuring, for some hypothetical reason, that name is
+              only used inside paragraphs (or its descendents).</item>
+            <item>A record of processing model documentation to indicate that we intend to process
+              this <gi>name</gi> element using the 'alternate' behaviour displaying the
+                <att>type</att> attribute as, for example, a tooltip. As well,
+                <gi>outputRendition</gi> is used to say this element, when web output is produced,
+              should be displayed in bold.</item>
+            <item>A new, and not very helpful, exemplum for the element</item>
+            <item>Some remarks on how our hypothetical project will use it</item>
+          </list> I 
+          
+          <egXML xmlns="http://www.tei-c.org/ns/Examples">  
+            <elementSpec ident="name" module="core" mode="change" xml:id="name-Spec">
+            
+              <!-- Rename the gloss from 'name, proper noun' to just 'a name'. -->
+            <gloss xml:lang="en" versionDate="2016-09-27">a name</gloss>
+            
+              <!-- For some reason we want to provide a new description.  -->
+            <desc xml:lang="en" versionDate="2016-09-27">A name is a proper noun, 
+              well, maybe also a noun phrase</desc>
+            
+              <!-- We've copied the <classes> element over from <name>, but I've 
+                commented out most of the attribute classes (we could remove them)-->
+            <classes mode="replace">
+              <memberOf key="model.nameLike.agent"/>
+              <!--<memberOf key="att.global"/>-->
+              <!--<memberOf key="att.personal"/>-->
+              <!--<memberOf key="att.datable"/>-->
+              <!--<memberOf key="att.editLike"/>-->
+              <memberOf key="att.typed"/>
+            </classes>
+            
+              <!-- For some reason we want to provide an additional constraint that names 
+              should only be used inside paragraphs -->
+            <constraintSpec scheme="isoschematron" ident="names-in-paragraphs" mode="replace">
+              <constraint xmlns:s="http://purl.oclc.org/dsdl/schematron">
+                <s:report test="not(ancestor::tei:p)">Error: We only want to allow names inside
+                  paragraphs.</s:report>
+              </constraint>
+            </constraintSpec>
+            
+              <!-- We have added an record of our processing model intention, that this 
+              should produce an alternate view showing the @type attribute, and be bold. -->
+            <model behaviour="alternate" output="web" predicate="@type">
+              <param name="alternate" value="@type"/>
+              <param name="default" value="."/>
+              <outputRendition>font-weight:bold</outputRendition>
+            </model>
+            
+              <!-- We've added a new, very short and unhelpful project-specific example -->
+            <exemplum xml:lang="en">
+              <egXML xmlns="http://www.tei-c.org//ns/Examples">
+                <name type="person">James Cummings</name>
+              </egXML>
+            </exemplum>
+            
+              <!-- Some project specific remarks -->
+            <remarks versionDate="2016-09-26" xml:lang="en">
+              <p>For our project we have modified the <gi>name</gi> element and allowed it only
+                inside paragraphs. The modifications include a new gloss, description, removal of
+                several attribute classes, and a new exemplum.</p>
+            </remarks> 
+          </elementSpec>
+          </egXML>  
+        </p>
+
+
+        <!-- Name elementSpec -->
+        <elementSpec ident="name" module="core" mode="change" xml:id="name-spec">
+          <!-- Rename the gloss from 'name, proper noun' to just 'a name'. -->
+          <gloss xml:lang="en" versionDate="2016-09-27">a name</gloss>
+          <!-- For some reason we want to provide a new description for the name element.  -->
+          <desc xml:lang="en" versionDate="2016-09-27">A name is a proper noun, well, maybe also a
+            noun phrase</desc>
+          <!-- We've copied the <classes> element over from name, but I've commented out most of the attribute classes (we could just remove them)  -->
+          <classes mode="replace">
+            <memberOf key="model.nameLike.agent"/>
+            <!--<memberOf key="att.global"/>-->
+            <!--<memberOf key="att.personal"/>-->
+            <!--<memberOf key="att.datable"/>-->
+            <!--<memberOf key="att.editLike"/>-->
+            <memberOf key="att.typed"/>
+          </classes>
+          <!-- For some reason we want to provide an additional constraint that names should only be used inside paragraphs -->
+          <constraintSpec scheme="schematron" ident="names-in-paragraphs" mode="replace">
+            <constraint xmlns:s="http://purl.oclc.org/dsdl/schematron">
+              <s:report test="not(ancestor::tei:p)">Error: We only want to allow names inside
+                paragraphs.</s:report>
+            </constraint>
+          </constraintSpec>
+          <!-- We have added an record of our processing model intention, that this should produce an alternate view showing the @type attribute, and be bold. -->
+          <model behaviour="alternate" output="web" predicate="@type">
+            <param name="alternate" value="@type"/>
+            <param name="default" value="."/>
+            <outputRendition>font-weight:bold</outputRendition>
+          </model>
+          <!-- We've added a new, very short and unhelpful project-specific example -->
+          <exemplum>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+        <name type="person">James Cummings</name>
+      </egXML>
+          </exemplum>
+          <remarks versionDate="2016-09-26" xml:lang="en">
+            <p>For our project we have modified the <gi>name</gi> element and allowed it only inside
+              paragraphs. The modifications include a new gloss, description, removal of several
+              attribute classes, and a new exemplum.</p>
+          </remarks>
+        </elementSpec>
+
+
+
+      </div>
+
+
+      <div>
+        <head>Modifying Elements: Changing Attribute </head>
+
+        <p>Many customisations want to take an attribute where the full TEI says that any value is
+          allowed and provide a specific list of those values that they think should be. This should
+          especially be considered where the attributes have the datatype of <ref
+            target="http://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-teidata.enumerated.html"
+            >teidata.enumerated</ref> since this comes from "a single XML name taken from a list of
+          documented possibilities". We used <gi>elementSpec</gi> earlier to do this to the
+            <att>agent</att> attribute of <gi>damage</gi>. If we wanted to add another value of to
+          this we would just edit the <gi>valList</gi> that we'd provided and give an new
+            <gi>valItem</gi>:
+          <egXML xmlns="http://www.tei-c.org/ns/Examples">
+            
+       <elementSpec ident="damage" module="transcr" mode="change" xml:id="damage-Spec">
+          <attList>  
+            <attDef ident="agent" mode="change">
+              <valList mode="replace" type="semi">
+                <valItem ident="blot">
+                  <desc>There is an ink blot</desc>
+                </valItem>
+                <valItem ident="fading">
+                  <desc>It is faded</desc>
+                </valItem>
+                <valItem ident="hole">
+                  <desc>There is a hole</desc>
+                </valItem>
+                <valItem ident="overwriting">
+                  <desc>There is overwriting</desc>
+                </valItem>
+                <!-- ... -->
+                <valItem ident="water">
+                  <desc>There is water damage</desc>
+                </valItem>
+                <valItem ident="other">
+                  <desc>There was some other agent of damage</desc>
+                </valItem>
+              </valList>
+            </attDef>
+          </attList>
+       </elementSpec>
+            
+      </egXML>
+          In this copy of the example we give a new value of 'other'. These descriptions are useful
+          not only in the prose documentation that we might generate but also in those editors which
+          pop them up as tooltips when you hover over this attribute choice. </p>
+
+      </div>
+
+      <div>
+        <head>Adding a New Element</head>
+        <p>We can use <gi>elementSpec</gi> to create a new element as well, with the <att>mode</att>
+          attribute having a value of <val>add</val>.
+          <egXML xmlns="http://www.tei-c.org/ns/Examples">
+           
+           <elementSpec ident="specialName" mode="add" prefix="jc_" xml:lang="en"
+             ns="http://james.blushingbunny.net/ns.html" xml:id="specialName-Spec">
+             <gloss xml:lang="en">Special Name</gloss>
+             <desc xml:lang="en">A "special" type of name created for our ODD</desc>
+             <classes>
+               <memberOf key="att.global"/>
+               <memberOf key="model.nameLike.agent"/>
+               <memberOf key="att.personal"/>
+               <memberOf key="att.datable"/>
+               <memberOf key="att.editLike"/>
+               <memberOf key="att.typed"/>
+             </classes>
+             
+             <!-- giving a new content model -->
+             <content><textNode/></content>
+             
+           </elementSpec>
+            
+         </egXML>
+          
+          This is basically the same as before except that we've not needed to supply a module
+          (since this is added, not modifying an existing element). Note, we've already deleted the
+          att.datable class so that <gi>memberOf</gi> will have no effect. The most important aspect
+          is the content model. This uses the modern "Pure" ODD syntax that no longer relies on
+          Relax NG. </p>
+
+
+      </div>
+
+
+      <div>
+        <head>Pure ODD Content Models</head>
+
+        <p>To resolve the so-called Durand Conundrum, the TEI has introduced the Pure ODD content
+          models into the TEI Guidelines (from version 3.0.0, January 2016). Mostly the work of Lou
+          Burnard the replace any reliance on Relax NG as a schema declaration language. </p>
+
+
+        <p>The Pure ODD Content Models include new elements: <specList>
+            <specDesc key="textNode"/>
+            <specDesc key="elementRef"/>
+            <specDesc key="classRef"/>
+            <specDesc key="macroRef"/>
+            <specDesc key="sequence"/>
+            <specDesc key="alternate"/>
+          </specList> The <gi>alternate</gi>, <gi>classRef</gi>, <gi>elementRef</gi>, and
+            <gi>sequence</gi> elements are members of att.repeatable: <specList>
+            <specDesc key="att.repeatable" atts="minOccurs maxOccurs context"/>
+          </specList>
+        </p>
+
+        <p>Our new element, <gi>specialName</gi> currently has a <gi>content</gi> element of:
+          <egXML xmlns="http://www.tei-c.org/ns/Examples">
+    
+            <content><textNode/></content>
+    </egXML>
+          So it just allowas text inside. If we wanted it instead to allow only a single
+            <gi>name</gi> element, its content model would be:
+          <egXML xmlns="http://www.tei-c.org/ns/Examples">
+            
+      <content><elementRef key="name"/></content>
+    </egXML>
+          Or we could use the <att>minOccurs</att> and <att>maxOccurs</att> attributes to say
+          precisely how many we wanted:
+          <egXML xmlns="http://www.tei-c.org/ns/Examples">
+      <content><elementRef key="name" minOccurs="2" maxOccurs="5"/></content>
+    </egXML>
+          Or say 'unbounded' to make it two or more <gi>name</gi> elements allowed:
+          <egXML xmlns="http://www.tei-c.org/ns/Examples">
+      <content><elementRef key="name" minOccurs="2" maxOccurs="unbounded"/></content>
+    </egXML>
+        </p>
+        <p> We can use the <gi>sequence</gi> element to provide a sequence of elements (which could
+          themselves provide <att>minOccurs</att> and <att>maxOccurs</att>) For example:
+          <egXML xmlns="http://www.tei-c.org/ns/Examples">
+      <content>
+        <sequence>
+          <elementRef key="name"/>
+          <elementRef key="title"/>
+        </sequence>
+      </content>
+      </egXML>
+          says that the content of out new element is made up one precisely one <gi>name</gi>
+          element followed by precisely one <gi>title</gi> element. </p>
+        <p> If we wanted either a <gi>name</gi> or a <gi>title</gi> then we would use the
+            <gi>alternate</gi> element instead:
+          <egXML xmlns="http://www.tei-c.org/ns/Examples">
+      <content>
+        <alternate>
+          <elementRef key="name"/>
+          <elementRef key="title"/>
+        </alternate>
+      </content>
+    </egXML>
+          If we wanted these to repeat we could use <att>minOccurs</att> and <att>maxOccurs</att> on
+          the <gi>alternate</gi> element:
+          <egXML xmlns="http://www.tei-c.org/ns/Examples">
+      <content>
+        <alternate minOccurs="0" maxOccurs="unbounded">
+          <elementRef key="name"/>
+          <elementRef key="title"/>
+        </alternate>
+      </content>
+    </egXML>
+        </p>
+
+
+        <p>We could enable mixed content by using the <gi>textNode</gi> element here as well:
+          <egXML xmlns="http://www.tei-c.org/ns/Examples">
+            <content>
+              <alternate minOccurs="0" maxOccurs="unbounded">
+                <elementRef key="name"/>
+                <elementRef key="title"/>
+                <textNode/>
+              </alternate>
+            </content>
+          </egXML>
+        </p>
+
+        <p>But the strength of the TEI is in its class system, instead of specifying <gi>name</gi>
+          and <gi>title</gi> we could use a class which they are both members of, for example
+            <code>model.limitedPhrase</code>:
+          <egXML xmlns="http://www.tei-c.org/ns/Examples">
+            <content>
+              <alternate minOccurs="0" maxOccurs="unbounded">
+                <classRef key="model.limitedPhrase"/>
+                <textNode/>
+              </alternate>
+            </content>
+          </egXML>
+        </p>
+
+        <p>The combination of <att>minOccurs</att> and <att>maxOccurs</att> on both the
+            <gi>alternate</gi> and <gi>sequence</gi> containers (which can appear multiple times in
+          one content model) and also the <gi>elementRef</gi>, <gi>classRef</gi> enables the
+          production of highly complex content models. (Some of which may not be able to be
+          expressed in current schema languages.) </p>
+        
+        
+        
+        
+        
+        
+      </div>
+
+
+
+
+
+      <div>
+        <head>Formal Schema Declaration and Reference Pages</head>
+        <!-- The schema -->
+        <schemaSpec ident="JC-TEIODD" docLang="en" start="TEI" targetLang="en" prefix="TEI_">
+          <!-- modules -->
+          <moduleRef key="tei"/>
+          <moduleRef key="core" include="p list item label head author title name "/>
+          <moduleRef key="header" include="teiHeader fileDesc titleStmt publicationStmt sourceDesc"/>
+          <moduleRef key="textstructure" include="TEI text body div front back"/>
+          <moduleRef key="transcr"/>
+          <moduleRef key="tagdocs"/>
+
+          <!-- pointing to elementSpecs in the text -->
+          <specGrpRef target="#damage-spec"/>
+          <specGrpRef target="#name-spec"/>
+          <specGrpRef target="#specialName-spec"/>
+
+
+          <classSpec type="atts" ident="att.datable" mode="delete"/>
+        
+        
+        
+        
+          <!-- embedding this new elementSpec -->
+          
+        
+        </schemaSpec>
+
+        <specGrp >
+          
+          <elementSpec ident="specialName" mode="add" prefix="jc_" xml:lang="en" xml:id="specialName-spec"
+            ns="http://james.blushingbunny.net/ns.html" >
+            <gloss xml:lang="en">Special Name</gloss>
+            <desc xml:lang="en">A special name created for ODD customisation purposes</desc>
+            <classes>
+              <memberOf key="att.global"/>
+              <memberOf key="model.nameLike.agent"/>
+              <memberOf key="att.personal"/>
+              <memberOf key="att.datable"/>
+              <memberOf key="att.editLike"/>
+              <memberOf key="att.typed"/>
+            </classes>
+            
+            <!-- giving a new content model -->
+            <content>
+              <alternate minOccurs="0" maxOccurs="unbounded">
+                <classRef key="model.limitedPhrase"/>
+                <textNode/>
+              </alternate>
+            </content>
+          </elementSpec>
+        </specGrp>
+
+
+      </div>
+    </body>
+  </text>
+</TEI>
