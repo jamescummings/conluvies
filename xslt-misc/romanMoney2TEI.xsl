@@ -10,7 +10,7 @@
 This XSLT takes a string of roman numeral money with pounds/shillings/pence (li, s, d) and turns it into a form 
 of TEI markup with li/s/d converted to basic pence value for comparison purposes.
 
-Run as: saxon -it:main -xs:romanMoney2TEI.xsl
+Run as: saxon -it:main -xsl:romanMoney2TEI.xsl
 
 This takes the values in the variable below in the main template and converts them to the 
 XML pasted in this comment below.  The point isn't to do that, of course, but to demonstrate 
