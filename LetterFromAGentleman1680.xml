@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_simplePrint.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_simplePrint.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Title</title>
+         </titleStmt>
+         <publicationStmt>
+            <p>Publication information</p>
+         </publicationStmt>
+         <sourceDesc>
+            <p>Information about the source</p>
+         </sourceDesc>
+      </fileDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <div>
+            <p> ... 
+               </p>
+         </div>
+
+
+      </body>
+   </text>
+</TEI>
+<!-- 
+   
+Digital Edition A letter from a gentleman in the city to one in the country concerning the bill for disabling the Duke of York to inherit the imperial crown of this realm 
+by
+A Gentleman in the city
+1680
+
+Digital Edition Published by: 
+School of English Literature, Language, and Linguistics, Newcastle University, Newcastle Upon Tyne, UK
+
+Licence: Licensed Creative Commons Attribution ShareALike, https://creativecommons.org/licenses/by-sa/4.0/ 
+
+Oriignal Title:A letter from a gentleman in the city to one in the country concerning the bill for disabling the Duke of York to inherit the imperial crown of this realm
+Original Author: A Gentleman in the city
+Original Publisher: Curtis, L.
+Original Publication Place: London
+Newcastle University, Special Collections: Friends 397, 
+ https://collectionscaptured.ncl.ac.uk/digital/collection/p21051coll82/id/41/rec/1
+ 
+ 
+Titlepage: 
+A LETTER FROM A Gentleman in the CITY, TO One in the COƲNTRY; Concerning the BILL For Diſabling the Duke of York To Inherit the Imperial Crown Of this REALM.
+LONDON, Printed in the Year, 1680
+    
+    
+
+First two sections: 
+[1] 
+               A Letter from a Gentleman in the City, to one in the
+               Country. 
+               
+               Sir, 
+               
+               THE Nation being awakened out of that Lethar-gy,
+               which for ſo many Years had bound up its Senſes, and deprived it
+               of all feeling and Perception; begins at laſt to diſcern it's
+               dan-ger and to provide againſt the ruine and miſchiefs which
+               threaten it. Accordingly the Houſe of Commons have not only
+               declared, nemine contradicente, That the Duke of York's being a
+               PapiſtThis is a sample editorial note about the term papist.,
+               hath given the greateſt countenance to the preſent Deſigns and
+               Conſpiracies of the Papiſts, a-gainſt the King and Proteſtant
+               Religion; but have brought in a Bill, Diſabling him to Inherit
+               the Imperial Crown of this Realm. 
+               
+               Now, Sir, this being the Affair
+               I deſign to Write freely to you about, I preſume in the very
+               entrance to tell you, that they could do no leſs, without
+               abandoning them-ſelves, and the whole Kingdom, to Bondage and
+               Popery. And all true Engliſh Men as well as Proteſtants, are ſo
+               ful-ly ſatisfied of the neceſſity and Juſtice of the courſe which
+               they ſteer; that they not only applaud and commend them in what
+               they have undertaken, but are ready to ſtake their Lives and
+               Fortunes towards the ſeeing it effe-cted and accompliſhed. 
+               
+               
+               [2]
+               Sect. I. Nor, in the firſt place, can the Papiſts them-ſelves
+               Condemn us for taking theſe due ways and Me-thods to ſecure our
+               Religion, and preſerve our Lives and Properties; ſeeing they are
+               not only agreeable to the Meaſures, (but much more modeſt) which
+               they have ta-ken in Forreign Countries to preſerve their own.
+               Shall it be lawful for the French, to endeavour to preclude Henry
+               the 4th. from enjoying the Crown of France, be-cauſe he was a
+               Proteſtant, and muſt it be unjuſt for the Engliſh to debar James
+               Duke of York from attaining the Soveraignty over this Realm, that
+               is a Papiſt? Shall the Pope and Church of Rome cheriſh and
+               juſtify a Bloody War, upon the alone foot of his being of a
+               different Re-ligion from what was received in that Nation? And
+               ſhall not we be allowed to uſe ſuch legal means, as are
+               conſiſtent with and warranted by our Conſtitution, to hinder a
+               Papiſt from aſcending the Regal Throne of this Kingdom? Shall it
+               be lawful for thoſe in the Communi-on of the Papal Church, to
+               adviſe Phillip the 2d. of Spain to Murder his Son Charles, for
+               ſpeaking only favourably of his Fathers Subjects in the
+               Netherlands, who were called Lutherans? And ſhall not we have the
+               liberty humbly to pray and deſire our King, to deſert a Brother
+               who hath Plotted the Ruin of his Majeſties Subjects, and for no
+               other reaſon but becauſe they are not Papiſts. And ſuppoſe it
+               ſhould be ſaid; that theſe methods were not only unjuſt, but
+               Condemned by ſome of the very Roman Communion; yet the deſparity
+               is ſo great between a Pa-piſts arriving at the Government over a
+               Proteſtant King-dom, and a Proteſtants being advanced to Reign
+               over a Popiſh Countrey, that it will no ways follow from thence,
+               that what the Parliament have undertaken, is in the leaſt
+               
+               [3]
+               reprehenſible. For no Proteſtant Prince will either en-ſlave his
+               Kingdom or Subjects to a Forreign Juriſdiction, nor call his
+               People into queſtion for their Religion, pro-vided they be not
+               influenced by the Principles of it, to diſturb the Government,
+               and diſquiet the Civil Peace. So that Papiſts inſtead of
+               receiving prejudice by having a Proteſtant Prince to rule over
+               them, they become poſſeſt of many advantages as to ſafety, eaſe
+               and immunities, which their being under a Popiſh King excludes
+               them from. And therefore it is, that we find the Papiſts do no
+               where ſo fully enjoy the Right and Liberties of mankind, as in
+               ſome Proteſtant Nations, where they have had the Wit and
+               Sobriety, not to moleſt their fellow Subjects, or Con-ſpire
+               againſt the Government under which they live. So far as their
+               Religion is found to have an Influence only up-a future Life, and
+               meerly to endanger their own happi-neſs; they are pitied inſtead
+               of being Capitally Proſecu-ted, and the worſt they are made to
+               ſuffer, is now and then to be rationally accoſted by their
+               Neighbours, and addreſſed unto by arguments, which may conduce to
+               re-ctify and inſtruct their Judgments. Whereas through the having
+               a Popiſh Prince Succeed over a Proteſtant Peo-ple, they become
+               immediately ſubjected to the ſevereſt Puniſhments, and that upon
+               the alone ſcore of their Chriſtian Profeſſion. It is not only
+               lawful for ſuch a Prince to deſtroy thoſe of his Subjects, who
+               diſagree from him in Faith and worſhip, but it is an
+               indiſpenſable Duty upon him to do it. Nor is he only ſure of a
+               Pardon up-on the accompliſhing ſo Bleſſed a work, but the merit
+               of the Atchievement entitles him to unſpeakable Happineſs and a
+               Glorious Crown. 
+
+
+    
+
+-->
