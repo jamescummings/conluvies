@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title type="project">Jane Loraine's Recipe Book (c.1684)</title>
+                <respStmt>
+                    <resp>Transcribed, edited and compiled by</resp>
+                    <persName type="MPD_2022" xml:id="AT6840"/>
+                </respStmt>
+            </titleStmt>
+            <publicationStmt>
+                <publisher>MPD: Manuscript, Print, Digital, 2017-2022</publisher>
+            </publicationStmt>
+            <sourceDesc>
+                <msDesc>
+                    <msIdentifier>
+                        <msName>Loraine, J. [A collection of recipes, compiled in the years
+                            1684-5.]</msName>
+                    </msIdentifier>
+                </msDesc>
+            </sourceDesc>
+        </fileDesc>
+    </teiHeader>
+    <text type="digital_edition" xml:id="digital_edition">
+        <body>
+            <div type="recipe_texts" xml:id="recipe_texts">
+                <head>The Recipes</head>
+        <div type="recipe" n="475" resp="#AT6840">
+            <head><ref xml:id="recipe-475-text">475</ref> A powder for 
+                <expan><ex>th</ex>e</expan> green 
+                <choice><orig>Sicknes</orig><reg>sickness</reg></choice>
+            </head>
+            
+            <p>Take <choice>
+                <orig>annaseeds</orig>
+                <reg>aniseeds</reg>
+            </choice><ptr target="SS0371-n6"/> 
+                <choice>
+                    <orig>nutmugs</orig>
+                    <reg>nutmegs</reg>
+                </choice> 
+                <choice><orig>alicampaine</orig><reg>elecampane</reg></choice><ptr target="#SA1523-n9"/> 
+                roots beat <expan><ex>the</ex>m</expan> to powder of each a like<lb type="word_end"/> 
+                <choice>
+                    <orig>qua<add place="above">n</add>tity</orig>
+                    <reg>quantity</reg>
+                </choice> 
+                sears <expan><ex>th</ex>e</expan> powders take as much more of
+                <expan><ex>th</ex>e</expan> quantity of 
+                <choice><orig>Sugar</orig><reg>sugar</reg></choice> 
+                as<lb type="word_end"/>of <expan><ex>th</ex>e</expan> powders</p>
+        </div>
+        <div type="recipe" n="476" resp="#AT6840">
+            <head>
+                The decoktion and opening for the Same
+            </head>
+            <p>
+                Take peniriall unset Isop mother of time fethertule mugwort mader
+                marygoold flowers leaues Iarmander bitany bugals mallows uiolet leaues
+                fenill percily root with 4 or 5 blades of Safron boyl all these in a
+                good quantity of ayle drink a good draught of it morning and euening
+            
+                </p>
+            
+        </div>
+        <div type="recipe" n="477" resp="#AT6840">
+            <head>A drink for the green Sickness</head>
+            <p>Egremony one hadfull wormwood and sentry of each halph a ha^n^dfull boyl it
+                in 3 pints of water 1 pint of white wine boyl it halph an owr then drink
+                euery mor^i^ng halph a pynt of it in the after noon as much its best to
+                be taken in the spring</p>
+            
+        </div>
+        <div type="recipe" n="478" resp="#AT6840">
+            <head>to bring down them</head>
+            <p>Sentry boyld in posit drink with currans is good or Sauin So boyld
+                and drund leaues of Smallage worn in the shows is good</p>
+        </div>
+        <div type="recipe" n="479" resp="#AT6840">
+            <head>For green Sicknes or dropsy</head>
+            <p>Take yallow sentry three drams giuen in a dram of annaseeds caraway seeds in wine or
+                any other liqur is good</p>
+        </div>
+        <div type="recipe" n="480" resp="#AT6840">
+            <head>For the whits</head>
+            <p>Take parsnips dry then beat them to powder then boyl that powder in milk drink it
+                warm it helps</p>
+        </div>
+        <div type="recipe" n="481" resp="#AT6840">
+            <head>For the green Sicknes</head>
+            <p>Take Magistry of pearll powder of stell powder of amber powder of currell powder
+                of allicompaine of each a quarter of an ounce mase cloues nutmugs of all a quarte
+                of an ounce as much dubell refined sugar of all these take as much as will ly on
+                Sixpenc in the morning at 6 a clok at four in after noone waiking after it</p>
+        </div>
+    </div>
+</body>
+    </text>
+</TEI>

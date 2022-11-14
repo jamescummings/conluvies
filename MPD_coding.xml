@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt><title type="project">Jane Loraine's Recipe Book (c.1684)</title>
+            <respStmt><resp>Transcribed, edited and compiled by</resp>
+               <persName type="MPD_2022" xml:id="AT6840"></persName>
+            </respStmt></titleStmt>
+         <publicationStmt><publisher>MPD: Manuscript, Print, Digital, 2017-2022</publisher></publicationStmt>
+         <sourceDesc><msDesc><msIdentifier><msName>Loraine, J. [A collection of recipes, compiled in the years 1684-5.]</msName></msIdentifier></msDesc></sourceDesc>
+      </fileDesc>
+   </teiHeader>
+         <text type="digital_edition" xml:id="digital_edition">
+            <body>
+               <div type="recipe_texts" xml:id="recipe_texts">
+                  <head>The Recipes</head>
+                     <div type="recipe" n="475" resp="#AT6840">
+                        <head><ref xml:id="recipe-475-text">475</ref> A powder for <expan><ex>th</ex>e</expan> green <choice><orig>Sicknes</orig><reg>sickness</reg></choice></head>
+                        <p>Take <choice><orig>annaseeds</orig><reg>aniseeds</reg></choice><ptr target="SS0371-n6"/> <choice><orig>nutmugs</orig><reg>nutmegs</reg></choice> <choice><orig>alicampaine</orig><reg>elecampane</reg></choice><ptr target="#SA1523-n9"/> roots beat <expan><ex>the</ex>m</expan> to powder of each a like<lb type="word_end"/><choice><orig>qua<add place="above">n</add>tity</orig><reg>quantity</reg></choice> sears <expan><ex>th</ex>e</expan> powders take as much more of <expan><ex>th</ex>e</expan> quantity of <choice><orig>Sugar</orig><reg>sugar</reg></choice> as<lb type="word_end"/>of <expan><ex>th</ex>e</expan> powders</p>
+                     </div>
+                     <div type="recipe" n="476" resp="#AT6840">
+                        <head><ref xml:id="recipe-476-text">476</ref> <expan><ex>Th</ex>e</expan> <choice><orig>decoktion</orig><reg>decoction</reg></choice> and opening for <expan><ex>th</ex>e</expan> <choice><orig>Same</orig><reg>same</reg></choice></head>
+                        <p>Take <choice><orig>peniriall</orig><reg>pennyroyal</reg></choice> unset <choice><orig>Isop</orig><reg>hyssop</reg></choice><ptr target="SA1523-n6"/> <choice><orig>mother of time</orig><reg>mother-of-thyme</reg></choice> <choice><orig>fethertule</orig><reg>feverfew</reg></choice> mugwort <choice><orig>mader</orig><reg>madder</reg></choice><lb type="word_end"/><choice><orig>marygoold</orig><reg>marigold</reg></choice> fl<del type="strikethrough">owe</del>rs leaves <choice><orig>Jarmander</orig><reg>germander</reg></choice><!--note-pointer #EG5999-->  <choice><orig>bitany</orig><reg>betony</reg></choice><ptr target="SRH2322-n1"/> <choice><orig>bugals</orig><reg>bugles</reg></choice> mallows violet leaves<lb type="word_end"/><choice><orig>fenill</orig><reg>fennel</reg></choice> <choice><orig>percily</orig><reg>parsley</reg></choice> root with 4 or 5 blades of <choice><orig>Safron</orig><reg>saffron</reg></choice> <choice><orig>boyl</orig><reg>boil</reg></choice> all these in a<lb type="word_end"/>good quantity of <choice><orig>ayle</orig><reg>ale</reg></choice> drink a good draught of it morning and evening</p>             
+                     </div>
+                     <div type="recipe" n="477" resp="#AT6840">
+                        <head><ref xml:id="recipe-477-text">477</ref> A drink for <expan><ex>th</ex>e</expan> green <choice><orig>Sickness</orig><reg>sickness</reg></choice></head>
+                        <p><choice><orig>Egremony</orig><reg>Agrimony</reg></choice> one <choice><orig>hadfull</orig><reg>handful</reg></choice> wormwood and sentry<ptr target="AT6840-n4"/> of each <choice><orig>halph</orig><reg>half</reg></choice> a <choice><orig>ha<add place="above">n</add>dfull</orig><reg>handful</reg></choice> <choice><orig>boyl</orig><reg>boil</reg></choice> it<lb type="word_end"/>in 3 pints of water 1 pint of white wine <choice><orig>boyl</orig><reg>boil</reg></choice> it <choice><orig>halph</orig><reg>half</reg></choice> an <choice><orig>owr</orig><reg>hour</reg></choice> <expan><ex>th</ex>en</expan> drink<lb type="word_end"/>every morning <choice><orig>halph</orig><reg>half</reg></choice> a <choice><orig>pynt</orig><reg>pint</reg></choice> of it in <expan><ex>th</ex>e</expan> <choice><orig>after noon</orig><reg>afternoon</reg></choice> as much <choice><orig>its</orig><reg>it's</reg></choice> best to<lb type="word_end"/>be taken in spring</p>
+                     </div>
+                     <div type="recipe" n="478" resp="#AT6840">
+                        <head><ref xml:id="recipe-478-text">478</ref> <choice><orig>to</orig><reg>To</reg></choice> bring down them</head>
+                        <p>Sentry <choice><orig>boyld</orig><reg>boiled</reg></choice> in <choice><orig>posit</orig><reg>posset</reg></choice> drink with <choice><orig>currans</orig><reg>currants</reg></choice> is good or <choice><orig>Savin</orig><reg>savin</reg></choice><ptr target="#AT6840-n1"/> <choice><orig>So</orig><reg>so</reg></choice> <choice><orig>boyld</orig><reg>boiled</reg></choice><lb type="word_end"/>and drund leaves of <choice><orig>Smallage</orig><reg>smallage</reg></choice> worn in <expan><ex>th</ex>e</expan> <choice><orig>shows</orig><reg>shoes</reg></choice> is good</p>
+                     </div>
+                     <div type="recipe" n="479" resp="#AT6840">
+                        <head><ref xml:id="recipe-479-text" resp="AT6840">479</ref> For green <choice><orig>Sicknes</orig><reg>sickness</reg></choice> or dropsy</head>
+                        <p>Take <choice><orig>yallow Sentry</orig><reg>yellow sentry</reg></choice><ptr target="AT6840-n4"/> three drams given in a dram of <choice><orig>annaseeds</orig><reg>aniseeds</reg></choice><ptr target="SS0371-n6"/> caraway seeds in wine or<lb type="word_end"/>any other <choice><orig>liqur</orig><reg>liquor</reg></choice> is good</p>
+                     </div>
+                     <div type="recipe" n="480" resp="#AT6840">
+                        <head><ref xml:id="recipe-480-text" resp="AT6840">480</ref> For <expan><ex>th</ex>e</expan> whits</head>
+                        <p>Take parsnips dry <expan><ex>the</ex>n</expan> beat <expan><ex>the</ex>m</expan> to powder then <choice><orig>boyl</orig><reg>boil</reg></choice> that powder in milk drink it<lb type="word_end"/>warm it helps</p>
+                     </div>
+                     <div  type="recipe" n="481" resp="#AT6840">
+                        <head><ref  xml:id="recipe-481-text" resp="AT6840">481</ref> For the green <choice><orig>Sicknes</orig><reg>sickness</reg></choice></head>
+                        <p>Take <choice><orig>Magistry</orig><reg>magistry</reg></choice> of <choice><orig>Pearll</orig><reg>pearl</reg></choice> powder of stell powder of amber powder of <choice><orig>currell</orig><reg>coral</reg></choice> powder<lb type="word_end"/>of <choice><orig>allicompaine</orig><reg>elecampane</reg></choice><ptr target="#SA1523-n9"/> of each a quarter of an ounce mace cloves <choice><orig>nutmugs</orig><reg>nutmegs</reg></choice> of all a <choice><orig>quarte</orig><reg>quarter</reg></choice><lb type="word_end"/>of an ounce as much <choice><orig>dubell</orig><reg>double</reg></choice> refined sugar of all these take as much as will <choice><orig>ly</orig><reg>lie</reg></choice> on<lb type="word_end"/><choice><orig>Sixpenc</orig><reg>sixpence</reg></choice> in the morning at 6 <choice><orig>a clok</orig><reg>o'Clock</reg></choice> at four in <choice><orig>after noone</orig><reg>afternoon</reg></choice> <choice><orig>waiking</orig><reg>waking</reg></choice> after it</p>
+                     </div>
+               </div>
+            </body>
+         </text>
+</TEI>
